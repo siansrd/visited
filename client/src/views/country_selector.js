@@ -16,6 +16,13 @@ CountrySelector.prototype.createSelect = function(){
   var countrySelector = document.getElementById('select-wrapper');
   countrySelector.appendChild(select);
   }) 
+  this.addListener(select);
+}
+
+CountrySelector.prototype.addListener = function(select){
+  select.addEventListener("change", function(event){
+    console.log(event.target.value)
+  })    
 }
 
 CountrySelector.prototype.render = function(){
