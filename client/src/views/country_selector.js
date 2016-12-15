@@ -5,20 +5,23 @@ var CountrySelector = function() {
 }
 
 CountrySelector.prototype.createSelect = function(){
-  var countrySelector = document.getElementById('select-wrapper');
-  var select = document.createElement('select');
-  this.createCountryList(select);
-  countrySelector.appendChild(select);
+  // var countrySelector = document.getElementById('select-wrapper');
+  // var select = document.createElement('select');
+  this.createCountryList();
+  // countrySelector.appendChild(select);
 }
 
-CountrySelector.prototype.createCountryList = function(selectElement){
+CountrySelector.prototype.createCountryList = function(){
+  var select = document.createElement('select');
   var api = new ApiRequest()
   api.getCountries(function(countries){
     for (country of countries){
       var option = document.createElement('option');
       option.text = country.name;
-      selectElement.appendChild(option);
+      select.appendChild(option);
     }
+  var countrySelector = document.getElementById('select-wrapper');
+  countrySelector.appendChild(select);
   }) 
 }
 
