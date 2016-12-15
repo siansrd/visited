@@ -1,9 +1,12 @@
+var CountrySelector = require('./country_selector');
+
+
 var UI = function(){
   
 }
 
 UI.prototype.render = function() {
-  console.log("UI render called")
+  var countrySelector = new CountrySelector();
 }
 
 module.exports = UI;
