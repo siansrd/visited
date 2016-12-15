@@ -5,13 +5,6 @@ var CountrySelector = function() {
 }
 
 CountrySelector.prototype.createSelect = function(){
-  // var countrySelector = document.getElementById('select-wrapper');
-  // var select = document.createElement('select');
-  this.createCountryList();
-  // countrySelector.appendChild(select);
-}
-
-CountrySelector.prototype.createCountryList = function(){
   var select = document.createElement('select');
   var api = new ApiRequest()
   api.getCountries(function(countries){
