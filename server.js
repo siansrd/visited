@@ -25,21 +25,26 @@ app.get('/countries', function(req,res) {
 });
 
 app.post('/countries', function(req,res) {
-  console.log('body', req.body);
   MongoClient.connect(url, function(err, db) {
-    var collection = db.collection('countries');
+    var collection = db.collection('countries'); 
     collection.insert(
-      { "country": req.body.country
-        // "name": req.body.name,
-        // "capital": req.body.capital,
-        // "currencies": req.body.currencies,
-        // "languages": req.body.languages,
-        // "latlng": req.body.latlng
-      }
+      { "country": req.body }
     );
     res.status(200).end();
     db.close();
   });
+});
+
+app.delete('/countries', function(req,res) {
+  MongoClient.connect(url, function(err, db) {
+    var collection = db.collection('countries'); 
+    console.log("country name :", req.body.country.name);
+    collection.remove( 
+      { "name" : req.body.country.name }
+    );
+    res.status(204).end();
+    db.close();
+  })
 });
 
 
