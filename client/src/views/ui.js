@@ -10,9 +10,9 @@ var UI = function(){
 UI.prototype.getDBCountries = function(){
   var db = new DBHandler();
   db.getSavedCountries(function(savedCountries){
-    console.log("get onload", savedCountries);
     var countryList = new CountryList();
     for (country of savedCountries) {
+      console.log("get onload", country._id);
       countryList.createListItem(country.country)
     }
   });

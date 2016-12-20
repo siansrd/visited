@@ -1,7 +1,7 @@
 var ApiRequest = require('../models/api_request.js');
-var DBHandler = require('../models/db_handler.js');
 var Country = require('../models/country.js');
 var CountryList = require('./country_list.js')
+var DBHandler = require('../models/db_handler.js');
 
 var CountrySelector = function() {
   this.render();

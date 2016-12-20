@@ -38,9 +38,9 @@ app.post('/countries', function(req,res) {
 app.delete('/countries', function(req,res) {
   MongoClient.connect(url, function(err, db) {
     var collection = db.collection('countries'); 
-    console.log("country name :", req.body.country.name);
+    console.log("country id :", req.body._id);
     collection.remove( 
-      { "name" : req.body.country.name }
+      { "name" : req.body.name }
     );
     res.status(204).end();
     db.close();
